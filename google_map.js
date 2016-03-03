@@ -70,8 +70,10 @@ function searchLocationsNear(center) {
             bounds.extend(latlng);
         }
         map.fitBounds(bounds);
-        locationSelect.style.visibility = "visible";
-        //mapsubmit.style.visibility = "visible";
+        locationSelect.style.display = "block";
+        //mapsubmit.style.display = "block"; //Uncomment this line to enable hide/show of map on submit
+        google.maps.event.trigger(map, 'resize');
+        map.fitBounds(bounds);
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             google.maps.event.trigger(markers[markerNum], 'click');

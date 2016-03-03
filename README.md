@@ -10,3 +10,4 @@ A geolocation plugin for GWPRESS.
     4. Geolocation and Geolocation categories will be added to your administration menu.
     5. Open geolocation_page.php and update the first line with an API Key from Google.
     6. Insert the contents of geolocation_page.php into the page you would like to display the map.
+    7. You also need to replace your body tag in your theme with <body onload="load()">
