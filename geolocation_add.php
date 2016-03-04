@@ -6,13 +6,13 @@ if(!empty($_POST)) {
     $body = $_POST['body'];
     $address = $_POST['address'];
     $featured = $_POST['featured'];
-    $longitude = $_POST['longitude'];
-    $latitude = $_POST['latitude'];
+    $lat = $_POST['lat'];
+    $lng = $_POST['lng'];
     $metadescription = $_POST['metadescription'];
     $metakeywords = $_POST['metakeywords'];
     $status = $_POST['status'];
     $post = new Geolocation();
-    $post->geoloc_save('', ''.$category_id.'', ''.$title.'', ''.$body.'', ''.$address.'', ''.$featured.'', ''.$longitude.'', ''.$latitude.'', ''.$metadescription.'', ''.$metakeywords.'', ''.$status.'');
+    $post->geoloc_save('', ''.$category_id.'', ''.$title.'', ''.$body.'', ''.$address.'', ''.$featured.'', ''.$lat.'', ''.$lng.'', ''.$metadescription.'', ''.$metakeywords.'', ''.$status.'');
 }
 $categories = db_select("SELECT * FROM geo_cat");
 ?>
@@ -66,16 +66,16 @@ $categories = db_select("SELECT * FROM geo_cat");
 
         <div id="response-container">
             <div class="form-group">
-                <label for="longitude" class="col-sm-2 control-label">Longitude</label>
+                <label for="lat" class="col-sm-2 control-label">Latitude</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude">
+                    <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="latitude" class="col-sm-2 control-label">Latitude</label>
+                <label for="lng" class="col-sm-2 control-label">Longitude</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Latitude">
+                    <input type="text" class="form-control" id="lng" name="lng" placeholder="Longitude">
                 </div>
             </div>
         </div>

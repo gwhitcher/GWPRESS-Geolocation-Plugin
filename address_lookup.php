@@ -17,12 +17,12 @@ function lookup($string){
     //print_r($response);
     $geometry = $response['results'][0]['geometry'];
 
-    $longitude = $geometry['location']['lat'];
-    $latitude = $geometry['location']['lng'];
+    $longitude = $geometry['location']['lng'];
+    $latitude = $geometry['location']['lat'];
 
     $array = array(
-        'latitude' => $geometry['location']['lng'],
-        'longitude' => $geometry['location']['lat'],
+        'latitude' => $geometry['location']['lat'],
+        'longitude' => $geometry['location']['lng'],
         'location_type' => $geometry['location_type'],
     );
 
@@ -31,15 +31,15 @@ function lookup($string){
 $address_lookup = lookup($_GET['address']);
 ?>
 <div class="form-group">
-    <label for="longitude" class="col-sm-2 control-label">Longitude</label>
+    <label for="lat" class="col-sm-2 control-label">Latitude</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude" value="<?php echo $address_lookup['longitude']; ?>">
+        <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude" value="<?php echo $address_lookup['latitude']; ?>">
     </div>
 </div>
 
 <div class="form-group">
-    <label for="latitude" class="col-sm-2 control-label">Latitude</label>
+    <label for="lng" class="col-sm-2 control-label">Longitude</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Latitude" value="<?php echo $address_lookup['latitude']; ?>">
+        <input type="text" class="form-control" id="lng" name="lng" placeholder="Longitude" value="<?php echo $address_lookup['longitude']; ?>">
     </div>
 </div>

@@ -115,27 +115,27 @@ class Geolocation {
         return $post;
     }
 
-    public static function geoloc_save($id, $category_id, $title, $body, $address, $featured, $longitude, $latitude, $metadescription, $metakeywords, $status) {
+    public static function geoloc_save($id, $category_id, $title, $body, $address, $featured, $lat, $lng, $metadescription, $metakeywords, $status) {
         $post_category_id = mysqli_real_escape_string(db_connect(), $category_id);
         $post_title = mysqli_real_escape_string(db_connect(), $title);
         $post_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $post_title)));
         $post_body = mysqli_real_escape_string(db_connect(), $body);
         $post_address = mysqli_real_escape_string(db_connect(), $address);
         $post_featured = mysqli_real_escape_string(db_connect(), $featured);
-        $post_longitude = mysqli_real_escape_string(db_connect(), $longitude);
-        $post_latitude = mysqli_real_escape_string(db_connect(), $latitude);
+        $post_lat = mysqli_real_escape_string(db_connect(), $lat);
+        $post_lng = mysqli_real_escape_string(db_connect(), $lng);
         $post_metadescription = mysqli_real_escape_string(db_connect(), $metadescription);
         $post_metakeywords = mysqli_real_escape_string(db_connect(), $metakeywords);
         $post_status = mysqli_real_escape_string(db_connect(), $status);
         $post_created_date = date("Y-m-d H:i:s");
         $post_updated_date = date("Y-m-d H:i:s");
         if(empty($id)) {
-            db_query("INSERT INTO geo (category_id, title, slug, body, address, featured, longitude, latitude, metadescription, metakeywords, status, created_date, updated_date) VALUES ('".$post_category_id."', '".$post_title."', '".$post_slug."', '".$post_body."', '".$post_address."', '".$post_featured."', '".$post_longitude."', '".$post_latitude."', '".$post_metadescription."', '".$post_metakeywords."', '".$post_status."', '".$post_created_date."', '".$post_updated_date."');");
+            db_query("INSERT INTO geo (category_id, title, slug, body, address, featured, lat, lng, metadescription, metakeywords, status, created_date, updated_date) VALUES ('".$post_category_id."', '".$post_title."', '".$post_slug."', '".$post_body."', '".$post_address."', '".$post_featured."', '".$post_lat."', '".$post_lng."', '".$post_metadescription."', '".$post_metakeywords."', '".$post_status."', '".$post_created_date."', '".$post_updated_date."');");
             $flash = new Flash();
             $flash->flash('flash_message', 'Geolocation created!');
             header("Location: ".BASE_URL.'/admin/plugin/geolocation/list');
         } else {
-            db_query("UPDATE ".MYSQL_DB.".geo SET category_id = '".$post_category_id."', title = '".$post_title."', slug = '".$post_slug."', body = '".$post_body."', address = '".$post_address."', featured = '".$post_featured."', longitude = '".$post_longitude."', latitude = '".$post_latitude."', metadescription = '".$post_metadescription."', metakeywords = '".$post_metakeywords."', status = '".$post_status."', updated_date = '".$post_updated_date."' WHERE id = ".$id.";");
+            db_query("UPDATE ".MYSQL_DB.".geo SET category_id = '".$post_category_id."', title = '".$post_title."', slug = '".$post_slug."', body = '".$post_body."', address = '".$post_address."', featured = '".$post_featured."', lat = '".$post_lat."', lng = '".$post_lng."', metadescription = '".$post_metadescription."', metakeywords = '".$post_metakeywords."', status = '".$post_status."', updated_date = '".$post_updated_date."' WHERE id = ".$id.";");
             $flash = new Flash();
             $flash->flash('flash_message', 'Geolocation updated!');
             header("Location: ".BASE_URL.'/admin/plugin/geolocation/list');

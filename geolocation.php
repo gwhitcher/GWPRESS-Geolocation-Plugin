@@ -30,6 +30,7 @@
         </table>
         <?php $pagination->pagination_links($pagination_limit, 'geo'); ?>
     </div>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKcOXgfh9JCLGO-0NSifmCh9jSXdIU8oo" type="text/javascript"></script>
     <script src="<?php echo BASE_URL; ?>/gw-content/plugins/geolocation/google_map.js" type="text/javascript"></script>
     <div>

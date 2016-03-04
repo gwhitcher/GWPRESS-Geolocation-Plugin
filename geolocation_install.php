@@ -20,12 +20,12 @@ title VARCHAR(255),
 slug VARCHAR(255),
 body TEXT,
 address TEXT,
-status INT(11),
 featured TEXT,
-longitude VARCHAR(255),
-latitude VARCHAR(255),
+lat VARCHAR(255),
+lng VARCHAR(255),
 metadescription VARCHAR(255),
 metakeywords VARCHAR(255),
+status INT(11),
 created_date DATETIME,
 updated_date DATETIME
 )";
@@ -49,15 +49,15 @@ metakeywords VARCHAR(255)
             $post_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $post_title)));
             $post_body = 'This is a test post of the geolocation plugin for GWPRESS.';
             $post_address = '355 Main St, Cambridge, MA 02142';
-            $post_status = 1;
             $post_featured = 'default.jpg';
-            $post_longitude = '42.3627572';
             $post_latitude = '-71.0871087';
+            $post_longitude = '42.3627572';
             $post_metadescription = METADESCRIPTION;
             $post_metakeywords = METAKEYWORDS;
+            $post_status = 1;
             $post_created_date = date("Y-m-d H:i:s");
             $post_updated_date = date("Y-m-d H:i:s");
-            db_query("INSERT INTO geo (category_id, title, slug, body, address, status, featured, longitude, latitude, metadescription, metakeywords, created_date, updated_date) VALUES (".$post_category_id.", '".$post_title."', '".$post_slug."', '".$post_body."', '".$post_address."', ".$post_status.", ".$post_featured.", '".$post_longitude."', '".$post_latitude."', '".$post_metadescription."', '".$post_metakeywords."', '".$post_created_date."', '".$post_updated_date."');");
+            db_query("INSERT INTO geo (category_id, title, slug, body, address, featured, lat, lng, metadescription, metakeywords, status, created_date, updated_date) VALUES (".$post_category_id.", '".$post_title."', '".$post_slug."', '".$post_body."', '".$post_address."', ".$post_featured.", '".$post_latitude."', '".$post_longitude."', '".$post_metadescription."', '".$post_metakeywords."', ".$post_status.", '".$post_created_date."', '".$post_updated_date."');");
 
             //Insert default category
             $category_title = 'Uncategorized';

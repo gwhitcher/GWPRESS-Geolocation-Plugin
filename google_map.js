@@ -69,11 +69,10 @@ function searchLocationsNear(center) {
             createMarker(latlng, title, address);
             bounds.extend(latlng);
         }
-        map.fitBounds(bounds);
         locationSelect.style.display = "block";
         //mapsubmit.style.display = "block"; //Uncomment this line to enable hide/show of map on submit
         google.maps.event.trigger(map, 'resize');
-        map.fitBounds(bounds);
+        if(!bounds.isEmpty()) {map.fitBounds(bounds);}
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             google.maps.event.trigger(markers[markerNum], 'click');
