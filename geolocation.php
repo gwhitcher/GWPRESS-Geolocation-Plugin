@@ -22,7 +22,7 @@
                 echo '<td>'.$post['id'].'</td>';
                 echo '<td>'.$post['title'].'</td>';
                 echo '<td><a class="btn btn-warning" href="'.BASE_URL.'/admin/plugin/geolocation/edit?id='.$post['id'].'">Edit</a></td>';
-                echo '<td><a class="delete btn btn-danger"" href="'.BASE_URL.'/admin/plugin/geolocation/delete?id='.$post['id'].'">Delete</a></td>';
+                echo '<td><a class="delete btn btn-danger" href="'.BASE_URL.'/admin/plugin/geolocation/delete?id='.$post['id'].'">Delete</a></td>';
                 echo '</tr>';
             }
             ?>
